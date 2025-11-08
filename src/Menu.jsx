@@ -4,11 +4,12 @@ import { NavLink } from "react-router-dom";
 
 export default function Menu() {
     return (
-        <header>
-            
+        <header>            
             <NavLink to={"/"}>Main</NavLink>
 
             <NavLink to={"/filtro"}>Filtro</NavLink>
+
+            <NavLink to={"/private"} >Private Area</NavLink>
         </header>
     )
 }

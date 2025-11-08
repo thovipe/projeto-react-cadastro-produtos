@@ -5,9 +5,11 @@ import Form from './components/form/Form'
 import Input from './components/Input/Input'
 import Box from './components/box/Box'
 import Menu from './Menu'
+import { useProdutos } from './components/ProductProvider';
 
 function App() {
-  const [produtos, setProdutos] = useState([])
+  //const [produtos, setProdutos] = useState([])
+  const { produtos, setProdutos } = useProdutos();
   const [postResponse, setPostResponse] = useState(({
                                                       "id": "",
                                                       "name": "",
@@ -56,7 +58,7 @@ function App() {
   ,[])
 
   const BASE = 'https://api.restful-api.dev/objects'
-  const [response, setResponse] = useState(null)
+  const [response, setResponse] = useState()
   const [isLoading, setIsLoading] = useState(true);
 
   const bodyObj = (
@@ -173,9 +175,9 @@ function App() {
   }
 
 
-  useEffect(() => {
-  localStorage.setItem('produtos', JSON.stringify(produtos));
-  }, [produtos]);
+  // useEffect(() => {
+  // localStorage.setItem('produtos', JSON.stringify(produtos));
+  // }, [produtos]);
 
 
 
@@ -194,8 +196,15 @@ function App() {
         <Form onSubmit={ handleSubmitGet } formName={"Consultar Produto"}>
           <Input value={product.id} name="id" handleChange={handleNameChange} type="text">Id do Produto: </Input>
           <Input type="submit" value="Consultar Produto" id='button-query-form'/>
+                  <pre>
+          <textarea
+            rows="20"
+            cols="35"
+            readOnly
+            value={JSON.stringify(response,null,4)}
+         />
+        </pre>
         </Form>
-
         <Form onSubmit={ handleSubmitPut } formName={"Alterar Produto"}>
           <Input value={product.id} name="id" handleChange={handleNameChange} type="text" required={true}>Id do Produto:</Input>
           <Input value={product.name} name="name" handleChange={handleNameChange} type="text">Nome: </Input>

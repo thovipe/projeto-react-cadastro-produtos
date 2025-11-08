@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import Form from "./components/form/Form";
-import Input from "./components/Input/Input";
-import Box from "./components/box/Box";
-import { useProdutos } from './components/ProductProvider';
-import { GetData } from "./components/controller/Controller";
+import Form from "../form/Form";
+import Input from "../Input/Input";
+import Box from "../box/Box";
+import { useProdutos } from '../ProductProvider';
+import { GetData } from "../controller/Controller";
+import './filter.modules.css'
 
 
 export default function Filter() {
@@ -51,30 +52,36 @@ export default function Filter() {
   );
 
   return (
-    <>
+<div className="filter-forms">
         <Form onSubmit={ handleSubmitGet } formName={"Consultar Produto"}>
           <Input value={product.id} name="id" handleChange={handleNameChange} type="text">Id do Produto: </Input>
           <Input type="submit" value="Consultar Produto" id='button-query-form'/>
         </Form>
-        <pre>
-          <textarea
-            rows="10"
-            cols="50"
-            readOnly
-            value={JSON.stringify(response,null,4)}
-         />
-        </pre>
+        {response && (
+          <div className="response-display">
+            <textarea
+              rows="10"
+              readOnly
+              value={JSON.stringify(response, null, 2)}
+            />
+          </div>
+        )}
+        
+        <div className="tables-section">
         <Form formName={"Filtrar por Nome"}>
           <Input value={product.name} name="name" handleChange={handleNameChange} type="text">Nome: </Input>
         </Form>
         <div>
-        <h4>Filtro</h4>
+        <h4>Resultados do Filtro</h4>
+        <div className="table-section">
             <Box produtos={filteredProducts} />
         </div>
         <h4>Produtos</h4>
         <div>
           <Box produtos={produtos} />
         </div>
-    </>
+        </div>
+    </div>
+</div>
     )
 }

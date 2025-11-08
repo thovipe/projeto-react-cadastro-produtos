@@ -1,17 +1,27 @@
 export async function GetData ( url ) {
-    try {
-    const rp = await fetch(url, {
+const controller = new AbortController();
+const signal = controller.signal;
+const timeoutId = setTimeout(() => controller.abort(), 2000);
+
+  try {
+    const rp = await fetch(url, {signal},{
       method: 'GET'
     }).then(
       response => {
+        clearTimeout(timeoutId);
         console.log(response)
         return response.json()
       }
     )
     return rp
     } catch (err) {
+      if (err.name === 'AbortError') {
+        console.log("Fetch abortado.")
+      }
       console.log('Erro:',err)
     }
+
+    
 }
 
 export async function PostData(url, bodyObj) {

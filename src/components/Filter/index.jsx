@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import Form from "../form/Form";
-import Input from "../Input/Input";
-import Box from "../box/Box";
+import Form from "../form";
+import Input from "../Input";
+import Box from "../box";
 import { useProdutos } from '../ProductProvider';
-import { GetData } from "../controller/Controller";
+import { GetData } from "../controller";
 import './filter.modules.css'
 
 

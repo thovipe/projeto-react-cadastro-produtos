@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import App from "./App";
 import Filter from "./components/Filter";
-import Menu from "./Menu";
+import Menu from "./components/Menu";
 import Private from "./components/Private";
 
 export default function Router() {

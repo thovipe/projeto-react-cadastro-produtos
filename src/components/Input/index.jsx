@@ -1,5 +1,6 @@
 export default function Input(props) {
-    return <div>
+    return (
+    <div>
         <label>{props.children}</label>
         <input type={props.type} 
                value={props.value}
@@ -9,6 +10,5 @@ export default function Input(props) {
                required={props.required} 
                >
                </input>
-
-    </div> 
+    </div>)
 }

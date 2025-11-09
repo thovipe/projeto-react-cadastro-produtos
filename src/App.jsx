@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import { DeleteData, GetData, PostData, PutData } from './components/controller/Controller'
-import Form from './components/form/Form'
-import Input from './components/Input/Input'
-import Box from './components/box/Box'
-import Menu from './Menu'
+import { DeleteData, GetData, PostData, PutData } from './components/controller'
+import Form from './components/form'
+import Input from './components/Input'
+import Box from './components/box'
 import { useProdutos } from './components/ProductProvider';
 
 function App() {

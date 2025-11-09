@@ -60,17 +60,7 @@ function App() {
   const [response, setResponse] = useState()
   const [isLoading, setIsLoading] = useState(true);
 
-  const bodyObj = (
-    {
-      "name": "Apple MacBook Pro 16",
-      "data": {
-         "year": 2019,
-         "price": 1849.99,
-         "CPU model": "Intel Core i9",
-         "Hard disk size": "1 TB"
-    }
-  }
-  )
+
 
   const handleNameChange = (event) => {
     const {name, value} = event.target;
@@ -78,6 +68,7 @@ function App() {
       ((prvValue) => ({...prvValue, [name]: value})
     ))
   }
+
 
   const handleDataChange = (event) => {
     const {name, value} = event.target;
@@ -173,13 +164,6 @@ function App() {
     }
   }
 
-
-  // useEffect(() => {
-  // localStorage.setItem('produtos', JSON.stringify(produtos));
-  // }, [produtos]);
-
-
-
   return (
     <>
       <div className="forms">
@@ -188,36 +172,26 @@ function App() {
           <Input value={product.data.year} name="year" handleChange={handleDataChange} type="text">Ano: </Input>
           <Input value={product.data.price} name="price" handleChange={handleDataChange} type="text" >Preço: </Input>
           <Input value={product.data["CPU model"]} name="CPU model" handleChange={handleDataChange} type="text" >Modelo de CPU: </Input>
-          <Input value={product.data["Hard disk size"]} name="Hard disk size" handleChange={handleDataChange} type="text" >Tamanho do Disco: </Input>
+          <Input value={product.data["Hard disk size"]} name="Hard disk size" handleChange={handleDataChange} type="text" >Tamanho do Disco: </Input>     
           <Input type="submit" value="Criar Produto" id='button-submit-form'/>
         </Form>
-
-        <Form onSubmit={ handleSubmitGet } formName={"Consultar Produto"}>
-          <Input value={product.id} name="id" handleChange={handleNameChange} type="text">Id do Produto: </Input>
-          <Input type="submit" value="Consultar Produto" id='button-query-form'/>
-                  <pre>
+        <div className="actions">
+          <Input value={product.id} name="id" handleChange={handleNameChange} type="text">Id do Produto:</Input>
+          <button id='button-query-form' onClick={handleSubmitGet}>Consultar Produto</button>
+          <button id='button-change-form' onClick={handleSubmitPut}>Alterar Produto</button>
+          <button id='button-delete-form' onClick={handleSubmitDelete}>Deletar Produto</button>
+        </div>
+        <div className="details">
+          <h3>Detalhes do Produto:</h3>
+        <pre>
           <textarea
             rows="20"
-            cols="35"
+            cols="45"
             readOnly
             value={JSON.stringify(response,null,4)}
          />
         </pre>
-        </Form>
-        <Form onSubmit={ handleSubmitPut } formName={"Alterar Produto"}>
-          <Input value={product.id} name="id" handleChange={handleNameChange} type="text" required={true}>Id do Produto:</Input>
-          <Input value={product.name} name="name" handleChange={handleNameChange} type="text">Nome: </Input>
-          <Input value={product.data.year} name="year" handleChange={handleDataChange} type="text">Ano: </Input>
-          <Input value={product.data.price} name="price" handleChange={handleDataChange} type="text" >Preço: </Input>
-          <Input value={product.data["CPU model"]} name="CPU model" handleChange={handleDataChange} type="text" >Modelo de CPU: </Input>
-          <Input value={product.data["Hard disk size"]} name="Hard disk size" handleChange={handleDataChange} type="text" >Tamanho do Disco: </Input>
-          <Input type="submit" value="Alterar Produto" id='button-change-form' />
-        </Form>
-
-        <Form onSubmit={ handleSubmitDelete } formName={"Deletar Produto"}>
-          <Input value={product.id} name="id" handleChange={handleNameChange} type="text" required={true}>Id do Produto:</Input>
-          <Input type="submit" value="Deletar Produto" id='button-delete-form'/>
-        </Form>
+        </div>
       </div>
       <div>
       <Box produtos={produtos} />

@@ -5,4 +5,14 @@
   gap: 2rem;
 }
 
+.actions {
+  display: inline-table ;
+  position: relative;
+  width: 22%;
+  top: 65px;
+}
   
+.details {
+    position: relative;
+    top: 40px;
+}

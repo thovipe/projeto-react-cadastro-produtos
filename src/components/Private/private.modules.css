@@ -1,4 +1,3 @@
-/* Private Component Styles */
 .private {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-style: oblique;
@@ -51,6 +50,8 @@
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   display: flex;
   justify-content: center;
+  position: absolute;
+  top: 60px;
   align-items: center;
   min-height: 40vh;
   padding-top: 3rem;
@@ -81,27 +82,4 @@
   border: 2px #000000 solid;
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .private {
-    width: 100%;
-    padding: 1.5rem;
-    margin: 2rem auto;
-  }
-
-  .private h3 {
-    font-size: 1.3rem;
-  }
-
-  .private li {
-    font-size: 1rem;
-    padding: 0.6rem;
-  }
-
-  .login-container button {
-    width: 100%;
-    font-size: 1rem;
-  }
 }

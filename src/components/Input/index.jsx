@@ -9,6 +9,7 @@ export default function Input(props) {
                id={props.id}
                required={props.required}
                step={props.step}
+               min={props.min}
                >
                </input>
     </div>)

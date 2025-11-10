@@ -170,7 +170,7 @@ function App() {
         <Form onSubmit={ handleSubmitPost} formName={"Cadastrar Novo Produto"}>
           <Input value={product.name} name="name" handleChange={handleNameChange} type="text">Nome: </Input>
           <Input value={product.data.year} name="year" handleChange={handleDataChange} type="text">Ano: </Input>
-          <Input value={product.data.price} name="price" handleChange={handleDataChange} type="text" >Preço: </Input>
+          <Input value={product.data.price} name="price" handleChange={handleDataChange} type="number" step={"0.01"} >Preço: </Input>
           <Input value={product.data["CPU model"]} name="CPU model" handleChange={handleDataChange} type="text" >Modelo de CPU: </Input>
           <Input value={product.data["Hard disk size"]} name="Hard disk size" handleChange={handleDataChange} type="text" >Tamanho do Disco: </Input>     
           <Input type="submit" value="Criar Produto" id='button-submit-form'/>

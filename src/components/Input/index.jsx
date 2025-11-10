@@ -7,7 +7,8 @@ export default function Input(props) {
                name={props.name}
                onChange={props.handleChange}
                id={props.id}
-               required={props.required} 
+               required={props.required}
+               step={props.step}
                >
                </input>
     </div>)
